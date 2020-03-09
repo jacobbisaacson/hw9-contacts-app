@@ -6,11 +6,11 @@ Following the patterns from class today, create a Contact List app, in a folder 
 
 ## Model your data
 
-You should have a `Contact` class, an `app` object, and whatever listeners you'd like to have. A `Contact` should have a first name, last name, phone number, and email address.  They can have whatever else you want to include. 
+You should have a `Contact` class, an `app` object, and whatever listeners you'd like to have. A `Contact` should have 4 properties set in its constructor: a firstName, lastName, phoneNumber, and emailAddress.  They can have whatever else you want to include. 
 
 ## Let the user add contacts
 
-A form should be displayed that lets the user enter the information, and the contact should be added into an array in the `app` object when the form is submitted.  This should be done by calling a method in the `app` object—`addContact()` might be a nice name for this method. 
+A form should be displayed that lets the user enter the information.  The form should have four fields—one for each of the properties (firstName, lastName, phoneNumber, and emailAddress).  When the form is submitted, a new `Contact` should be instantiated and added into an array in the `app` object.   This should be done by having a listener/handler get the data for each of the 4 fields and then calling a method in the `app` object (`addContact()` might be a nice name for this method) and passing in the form data. 
 
 ## Print the contacts
 
@@ -21,6 +21,8 @@ After a contact is added, they should appear on in a list on the screen in a nic
 User should be able to delete a contact by clicking something (a button or an X or a link or something, for each contact).
 
 > Hints: Have a container (div or ul) where all the contacts are displayed. Add a listener to the container.  Use conditional logic and `e.target`  (i.e. check and see if the thing clicked has a class like `.delete-button`) so that if the user clicks on a delete button/link/X something happens, but otherwise the click is ignored.
+
+Bonus: Use `confirm()` to ask the user if they're sure they want to delete that contact.
 
 ## Commits & guidance
 
@@ -73,8 +75,11 @@ Add these functionalities, committing after each.
 
 * User should be able to edit/update information for existing contacts.
 
-* User should not be able to add a contact that has the same first AND last name.
+* User should not be able to add a contact that has the same first AND last name as another contact.
 
 * Contacts should be able to have multiple phone numbers.  Phone numbers should be able to be added or removed from a contact in their edit screens.
+
+* User should be able to store the contacts in `localStorage` (google it) so that they see their list (including favorites) when the page is reloaded/if the window is closed.
+
 
 
