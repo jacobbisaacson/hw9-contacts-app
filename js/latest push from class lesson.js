@@ -32,10 +32,6 @@ class ToDo {
 
 }
 
-
-
-
-
 // we need somewhere for all of our app's logic and state to live
 // analogous to main(), game object, 
 const app = {
@@ -83,38 +79,19 @@ const app = {
   // so that the user can see what they added on the screen
   // 4. a funny thing will happen if user adds a few todos -- how can you fix it?
   printTodos: function() {
-    // grab the ul
     const ul = document.querySelector('#todo-list')
-
-    // delete the old lis
     ul.innerHTML = ""
-
-    // loop over this.todos and reprint the list
     for(let i = 0; i < this.todos.length; i++) {
       let todo = this.todos[i]
-      // create li
       const li = document.createElement('li')
-      // set text 
       li.innerText = todo.itemContent
-
-      // use HTML dataset to store the array index directly in the tag
-      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLOrForeignElement/dataset
-      // https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*
       li.dataset.todoIndex = i
-
-      // if this text is complete add a line
       if(todo.completed) {
         li.style.textDecoration = "line-through"
       }
-
-      // show an X for user to single-click to delete this
-      // concatenate span onto innerHTML
       li.innerHTML += " (<span class='delete-item'>X</span>)"
-
-      // append to ul
       ul.appendChild(li)
     }
-
   },
 
   markTaskComplete: function(indexOfTaskToComplete) {
