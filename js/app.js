@@ -24,29 +24,22 @@ const app = {
 	},
 
 	printContact: function() {
-		const ul = document.querySelector('#firstName-text-input')
+		const ul = document.querySelector('#contact-adding-form')
 		ul.innerHTML = ""
 		for(let i = 0; i < this.contacts.length; i++) {
-		}
-		let contact = this.contacts
-		const li = document.createElement('li')
-		li.innerText = this.newContact.obj
-		// la.dataset.contactIndex = i
-		ul.appendChild(li)
+			let contact = this.contacts
+			const li = document.createElement('li')
+			li.innerText = `${this.contacts[i].firstName} ${this.contacts[i].lastName} 
+			\n phone: ${this.contacts[i].phoneNumber} \n
+			email: ${this.contacts[i].emailAddress}`
+
+			ul.appendChild(li)
 		// const ul = document.createElement("#firstName-text-input")
-		// const li = document.createElement("#firstName-text-input")
-		// need to loop over array
-		// in order to print each element of the added contact
-		// need to create element to show
-		// created and li, for the contact
-		// for each elemt in the array, set the innerText of the li, to 
+		}
 	}
 
 
-
 }
-
-
 
 
 
@@ -67,101 +60,9 @@ const inputEmailAddress = document.querySelector("#emailAddress-text-input")
 	}
 app.addContact(newContact)
 
-	// app.addContact(inputFirstName.value)
-	// app.addContact(inputLastName.value)
-	// app.addContact(inputPhoneNumber.value)
-	// app.addContact(inputEmailAddress.value)
-	// inputFirstName.value = ""
-	// event.preventDefault()
 
 
 })
-
-
-
-
-
-
-
-
-
-
-
-// class Contact {
-
-// 	constructor(obj) {
-// 		console.log("this is the new contact data");
-// 		console.log(obj);
-// 		this.firstName = obj.firstName
-// 		this.lastName = obj.lastName
-// 		this.phoneNumber = obj.phoneNumber
-// 		this.emailAddress = obj.emailAddress
-// 	}
-// }
-
-// const app = {
-// 	contacts: [],
-
-
-// 	addContact: function(obj) {
-// 		const contact = new Contact(obj)
-// 		this.contacts.push(contact)
-// 		this.printContact()
-
-// 	},
-
-// 	printContact: function() {
-// 		const ul = document.querySelector('#firstName-text-input')
-// 		ul.innerHTML = ""
-// 		for(let i = 0; i < this.contacts.length; i++) {
-// 			let contact = this.contacts[i]
-// 		}
-// 		const li = document.createElement('li')
-// 		li.innerText = contact.itemContent
-// 		la.dataset.contactIndex = i
-// 		ul.appendChild(li)
-// 		// const ul = document.createElement("#firstName-text-input")
-// 		// const li = document.createElement("#firstName-text-input")
-// 		// ul.appendChild(li)
-// 		// need to loop over array
-// 		// in order to print each element of the added contact
-// 		// need to create element to show
-// 		// created and li, for the contact
-// 		// for each elemt in the array, set the innerText of the li, to 
-// 	}
-
-
-
-// }
-
-
-// // const contactAddingForm = document.querySelector('#contact-adding-form')
-// // contactAddingForm.addEventListener('submit', (obj) => {
-// // 	event.preventDefault()
-// // 	const inputContactInfo = document.querySelector("#firstName-text-input")
-// // 	console.log(inputContactInfo.value);
-// // 	app.addContact(inputContactInfo.value)
-// // 	inputContactInfo.value = ""
-// // })
-
-
-
-// const contactForm = document.querySelector("#contact-adding-form")
-// contactForm.addEventListener('submit', (event) => {
-// 	event.preventDefault()
-// const inputFirstName = document.querySelector("#firstName-text-input")
-// 	const newContact = {
-// 		firstName: inputFirstName.value,
-// 		lastName: inputLastName.value,
-// 		phoneNumber: inputPhoneNumber.value,
-// 		emailAddress: inputEmailAddress.value
-// 	}
-// app.addContact(newContact)
-// })
-
-
-
-
 
 
 
