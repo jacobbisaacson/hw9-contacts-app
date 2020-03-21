@@ -9,34 +9,57 @@ class Contact {
 	}
 }
 
-
 const app = {
-	contacts: [],
- 
-	addContact: function(obj) {
-		const contact = new Contact(obj)
-		this.contacts.push(contact)
-		this.printContact()
+
+	contactsArray : [],
+	addContact : function(firstName,lastName,phoneNumber,emailAddress){
+		const newContact = new Contact(firstName,lastName,phoneNumber,emailAddress);
+		app.contactsArray.push(newContact)
+	},
+
+printContactToList : function(){
+	
+
+		const lastObjInArr = app.contactsArray[app.contactsArray.length-1]
+		
+		const contactDiv = document.createElement('div')
+		contactDiv.id = lastObjInArr.lastName + '-' + lastObjInArr.firstName
+		contactDiv.style.cssText = "border-style : solid; margin-bottom : 1% ";
+	
+		
+		const h1NameTag = document.createElement('h1')
+		h1NameTag.innerHTML = `${lastObjInArr.lastName}, ${lastObjInArr.firstName}`
+		contactDiv.appendChild(h1NameTag)
+		
+		const h3PhoneTag = document.createElement('h3')
+		h3PhoneTag.innerHTML = `Phone Number : ${lastObjInArr.phoneNumber}`
+		contactDiv.appendChild(h3PhoneTag)
+
+		const h4EmailTag = document.createElement('h4')
+		h4EmailTag.innerHTML = `Email : ${lastObjInArr.emailAddress}`
+		contactDiv.appendChild(h4EmailTag)
+
+		const makeDeleteButton = () => {
+			const deleteButton = document.createElement("button");
+			deleteButton.id = `delete-`+lastObjInArr.lastName + '-' + lastObjInArr.firstName
+			deleteButton.classList.add("deleteButtons")
+			deleteButton.innerHTML = "Delete Contact"
+			contactDiv.appendChild(deleteButton)
+
+		};
+
+		makeDeleteButton() 
+
+		document.body.appendChild(contactDiv)
+
 
 	},
 
-	printContact: function() {
-		const ul = document.querySelector('#contact-adding-form')
-		ul.innerHTML = ""
-		for(let i = 0; i < this.contacts.length; i++) {
-			let contact = this.contacts
-			const li = document.createElement('li')
-			li.innerText = `${this.contacts[i].firstName} ${this.contacts[i].lastName} 
-			\n phone: ${this.contacts[i].phoneNumber} \n
-			email: ${this.contacts[i].emailAddress}`
-
-			ul.appendChild(li)
-		// const ul = document.createElement("#firstName-text-input")
-		}
-	}
-
-
+	deleteContact : (contact) => {
+		document.body.removeChild(contact)
+	}, 
 }
+
 
 
 
