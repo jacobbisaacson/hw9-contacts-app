@@ -64,26 +64,34 @@ printContactToList : function(){
 
 
 
-const contactForm = document.querySelector("#contact-adding-form")
-contactForm.addEventListener('submit', (event) => {
-	event.preventDefault()
+const submitInfo = document.querySelector("#contact-form")
+submitInfo.addEventListener('submit', (event) => {
 
-const inputFirstName = document.querySelector("#firstName-text-input")
-const inputLastName = document.querySelector("#lastName-text-input")
-const inputPhoneNumber = document.querySelector("#phoneNumber-text-input")
-const inputEmailAddress = document.querySelector("#emailAddress-text-input")
-	const newContact = {
-		firstName: inputFirstName.value,
-		lastName: inputLastName.value,
-		phoneNumber: inputPhoneNumber.value,
-		emailAddress: inputEmailAddress.value
-	}
-app.addContact(newContact)
+	let firstNameInput = document.querySelector("#firstName").value
+	let lastNameInput = document.querySelector("#lastName").value
+	let phoneNumberInput = document.querySelector("#phoneNumber").value
+	let emailAddressInput = document.querySelector("#emailAddress").value
+	
+	event.preventDefault();
+	app.addContact(firstNameInput,lastNameInput,phoneNumberInput,emailAddressInput);
+	app.printContactToList();
 
-
-
+	firstNameInput = "";
+	lastNameInput = "";
+	phoneNumberInput = "";
+	emailAddressInput = "";
 })
 
+const deleteButtons = document.querySelectorAll(".deleteButtons")
+const contactsUL = document.querySelector('#contacts-ul')
+
+document.body.addEventListener('click', (event) => {
+	let deleteButtonClicked = event.target
+	let contactToDelete = deleteButtonClicked.parentNode
+	if(deleteButtonClicked.className === "deleteButtons"){
+		app.deleteContact(contactToDelete)
+	}
+})
 
 
 
