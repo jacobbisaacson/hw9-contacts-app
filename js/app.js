@@ -1,21 +1,18 @@
 console.log("hw9");
 
 class Contact {
-
-	constructor(obj) {
-		console.log("this is the new contact data");
-		console.log(obj);
-		this.firstName = obj.firstName
-		this.lastName = obj.lastName
-		this.phoneNumber = obj.phoneNumber
-		this.emailAddress = obj.emailAddress
-		this.newContact = obj.newContact
+	constructor(firstName,lastName,phoneNumber,emailAddress) {
+		this.firstName = firstName
+		this.lastName = lastName 
+		this.phoneNumber = phoneNumber
+		this.emailAddress = emailAddress
 	}
 }
 
+
 const app = {
 	contacts: [],
-
+ 
 	addContact: function(obj) {
 		const contact = new Contact(obj)
 		this.contacts.push(contact)
